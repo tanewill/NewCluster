@@ -20,6 +20,12 @@
     "blobName": {
       "type": "string"
     },
+    "vnetResourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource Group VNET is deployed in"
+      }
+    },
     "vnetName": {
       "type": "string"
     },
@@ -92,6 +98,7 @@
           "vmSize": { "value": "[parameters('vmSize')]" },
           "OSType": { "value": "[parameters('OSType')]" },
           "vnetName": { "value": "[parameters('vnetName')]" },
+          "vnetResourceGroup": { "value": "[parameters('vnetResourceGroup')]" },
           "subnetName": { "value": "[parameters('subnetName')]" },
           "location": { "value": "[parameters('location')]" },
           "masterHostName": { "value": "[parameters('masterHostName')]" },
