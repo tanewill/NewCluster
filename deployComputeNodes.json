@@ -61,7 +61,7 @@
     }
   },
   "variables": {
-    "baseTemplateUri": "[concat(parameters('templateLocation'), 'vm_baseSingleAV.json')]",
+    "baseTemplateUri": "[concat(parameters('templateLocation'), 'basedeployment.json')]",
     "availabilitySetName": "[concat(parameters('uniquePrefix'), 'av')]",
     "location": "[resourceGroup().location]"
   },
