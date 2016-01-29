@@ -15,6 +15,7 @@
       "type": "string",
       "defaultValue": "Standard_A9",
       "allowedValues": [
+        "Standard_A1",
         "Standard_A8",
         "Standard_A9"
       ],
