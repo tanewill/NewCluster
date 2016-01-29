@@ -72,7 +72,8 @@
       "type": "string"
     },
     "finaldeployScriptURI": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "https://raw.githubusercontent.com/grandparoach/NewCluster/master/finaldeploy.sh"
     },
     "adminPassword": {
       "type": "securestring"
