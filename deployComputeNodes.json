@@ -12,10 +12,26 @@
       "type": "int"
     },
     "vmSize": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "Standard_A9",
+      "allowedValues": [
+        "Standard_A8",
+        "Standard_A9"
+      ],
+      "metadata": {
+        "description": "Size of the VMs to be used for actual computation."
+      }
     },
     "OSType": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "Linux",
+      "allowedValues": [
+        "Linux",
+        "Windows"
+      ],
+      "metadata": {
+        "description": "Compute OS Type"
+      }
     },
     "blobName": {
       "type": "string"
