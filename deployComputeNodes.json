@@ -155,265 +155,44 @@
         ]
       }
     },
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat('transfer', parameters('uniquePrefix'), 'vm')]",
-      "location": "[variables('location')]",
-      "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/transfer', parameters('uniquePrefix'), 'sa')]",
-        "[concat('Microsoft.Network/networkInterfaces/transfer', parameters('uniquePrefix'), 'nic')]"
-      ],
-      "properties": {
-        "hardwareProfile": {
-          "vmSize": "[parameters('transferVMSize')]"
-        },
-        "osProfile": {
-          "computername": "[concat('transfer', parameters('uniquePrefix'), 'vm')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
-        },
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "[variables('transferImagePublisher')]",
-            "offer": "[variables('transferImageOffer')]",
-            "sku": "[variables('transferOSVersion')]",
-            "version": "latest"
-          },
-          "osDisk": {
-            "name": "osdisk",
-            "vhd": {
-              "uri": "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/transfervm.vhd')]"
-            },
-            "caching": "ReadWrite",
-            "createOption": "FromImage"
-          },
-          "dataDisks": [ 
-            { 
-            "name": "datadisk0", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 0, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk0.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk1", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 1, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk1.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk2", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 2, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk2.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk3", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 3, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk3.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk4", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 4, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk4.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk5", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 5, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk5.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk6", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 6, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk6.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk7", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 7, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk7.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk8", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 8, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk8.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk9", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 9, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk9.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk10", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 10, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk10.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk11", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 11, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk11.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk12", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 12, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk12.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk13", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 13, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk13.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk14", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 14, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk14.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }, 
-            { 
-            "name": "datadisk15", 
-            "diskSizeGB": "[parameters('dataDiskSize')]", 
-            "lun": 15, 
-            "vhd": { 
-              "Uri":  "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net/transfervm/datadisk15.vhd')]" 
-              }, 
-            "caching": "ReadWrite", 
-            "createOption": "Empty" 
-            }
-          ]
-        },
-        "networkProfile": {
-          "networkInterfaces": [
-            {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', concat('transfer', parameters('uniquePrefix'), 'nic'))]"
-            }
-          ]
-        },
-        "diagnosticsProfile": {
-          "bootDiagnostics": {
-            "enabled": "true",
-            "storageUri": "[concat('http://transfer',parameters('uniquePrefix'),'sa.blob.core.windows.net')]"
-          }
-        }
-      }
-    },
-    {
-      "name": "[concat(parameters('uniquePrefix'), 'script0')]",
+
+    
+     {
+      "name": "[concat(parameters('uniquePrefix'), 'full')]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/transfer', parameters('uniquePrefix'), 'vm')]"
+        "uploadLoop"
       ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[variables('downloadTemplateURI')]",
+          "uri": "[concat(variables('finalTemplateUri'), parameters('deploymentType'), '.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "location": { "value": "[variables('location')]" },
           "uniquePrefix": { "value": "[parameters('uniquePrefix')]" },
-          "imageLocation": { "value": "[parameters('imageLocation')]" },
+          "numberOfSAs": { "value": "[parameters('numberOfSAs')]" },
+          "instanceCountPerSA": { "value": "[parameters('instanceCountPerSA')]" },
+          "vmSize": { "value": "[parameters('computeVMSize')]" },
+          "OSType": { "value": "[parameters('computeOSType')]" },
+          "blobName": { "value": "[variables('blobName')]" },
+          "vnetName": { "value": "[variables('vnetName')]" },
+          "addressPrefix": { "value": "[variables('addressPrefix')]" },
+          "subnetName": { "value": "[variables('subnetName')]" },
+          "subnetPrefix": { "value": "[variables('subnetPrefix')]" },
+          "templateLocation": { "value": "[variables('templateLocation')]" },
+          "location": { "value": "[variables('location')]" },
           "masterHostName": { "value": "[concat('transfer', parameters('uniquePrefix'), 'vm')]" },
           "hpcUserName": { "value": "[parameters('hpcUserName')]" },
-          "storageAccountKey": { "value": "[parameters('storageAccountKey')]" },
-          "downloadScriptURI": { "value": "[variables('downloadScriptURI')]" }
+          "finaldeployScriptURI": { "value": "[variables('finaldeployScriptURI')]" },
+          "adminUsername": { "value": "[parameters('adminUsername')]" },
+          "adminPassword": { "value": "[parameters('adminPassword')]" }
         }
       }
-    },
-    {
-      "name": "[concat(parameters('uniquePrefix'), 'script', string(add(copyIndex(), 1)))]",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', parameters('uniquePrefix'), 'script', copyIndex())]"
-      ],
-      "copy": {
-        "name": "uploadLoop",
-        "count": "[parameters('numberOfSAs')]"
-      },
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[variables('uploadTemplateURI')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "location": { "value": "[variables('location')]" },
-          "uniquePrefix": { "value": "[parameters('uniquePrefix')]" },
-          "index": { "value": "[copyIndex()]" },
-          "uploadScriptURI": { "value": "[variables('uploadScriptURI')]" }
-        }
-      }
+    }
+
+      
     }
   ]
 }
