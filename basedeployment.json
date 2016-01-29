@@ -26,6 +26,12 @@
     "vnetName": {
       "type": "string"
     },
+    "vnetResourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource Group VNET is deployed in"
+      }
+    },
     "subnetName": {
       "type": "string"
     },
