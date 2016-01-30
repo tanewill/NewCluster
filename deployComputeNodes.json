@@ -3,17 +3,20 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "uniquePrefix": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "nfs2"
     },
     "numberOfSAs": {
-      "type": "int"
+      "type": "int",
+      "defaultValue": 4
     },
     "instanceCountPerSA": {
-      "type": "int"
+      "type": "int",
+      "defaultValue": 4
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_A9",
+      "defaultValue": "Standard_A1",
       "allowedValues": [
         "Standard_A1",
         "Standard_A8",
@@ -40,31 +43,38 @@
     },
     "vnetResourceGroup": {
       "type": "string",
+      "defaultValue": "testnfs2"
       "metadata": {
         "description": "Resource Group VNET is deployed in"
       }
     },
     "vnetName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "nfs2vnet"
     },
     "subnetName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "subnet"
     },
     "templateLocation": {
       "type": "string",
       "defaultValue": "https://raw.githubusercontent.com/grandparoach/NewCluster/master/"
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "West US"
     },
     "adminUsername": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "sroach"
     },
     "masterHostName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "transfernfs2vm"
     },
     "hpcUserName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "hpc"
     },
     "finaldeployScriptURI": {
       "type": "string",
