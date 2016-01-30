@@ -42,8 +42,7 @@
       "defaultValue": "20150826185255-00853603622-centos71-rdma-os1.vhd"
     },
     "vnetResourceGroup": {
-      "type": "string",
-      "defaultValue": "testnfs2"
+      "type": "string"
     },
     "vnetName": {
       "type": "string",
