@@ -43,10 +43,7 @@
     },
     "vnetResourceGroup": {
       "type": "string",
-      "defaultValue": "testnfs2",
-      "metadata": {
-        "description": "Resource Group VNET is deployed in"
-      }
+      "defaultValue": "testnfs2"
     },
     "vnetName": {
       "type": "string",
