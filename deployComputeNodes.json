@@ -7,12 +7,10 @@
       "defaultValue": "nfs2"
     },
     "numberOfSAs": {
-      "type": "int",
-      "defaultValue": 4
+      "type": "int"
     },
     "instanceCountPerSA": {
-      "type": "int",
-      "defaultValue": 4
+      "type": "int"
     },
     "vmSize": {
       "type": "string",
