@@ -4,7 +4,7 @@
   "parameters": {
     "uniquePrefix": {
       "type": "string",
-      "defaultValue": "nfs2"
+      "defaultValue": "namd"
     },
     "numberOfSAs": {
       "type": "int"
